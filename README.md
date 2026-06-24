@@ -28,4 +28,36 @@ Aplicativo mobile desenvolvido em **React Native com Expo** para monitoramento d
 ## 📋 Pré-requisitos
 
 - Node.js v18+
-- App **Expo Go** instalado no smartphone (
+- App **Expo Go** instalado no smartphone ([Android](https://play.google.com/store/apps/details?id=host.exp.exponent) / [iOS](https://apps.apple.com/app/expo-go/id982107779))
+- Backend do projeto rodando na mesma rede local
+
+---
+
+## ⚙️ Instalação e execução
+
+**1. Clone o repositório e instale as dependências:**
+```bash
+git clone https://github.com/AFFelipe/urbanismo-tatico-app.git
+cd urbanismo-tatico-app
+npm install
+```
+
+**2. Configure o IP do backend:**
+
+Em `screens/HomeScreen.js`, substitua pelo IPv4 da sua máquina na rede local:
+```js
+const API_BASE = 'http://SEU_IP_LOCAL:3000';
+```
+
+> Para descobrir seu IP: `ipconfig` (Windows) ou `ifconfig` (Linux/macOS)
+
+**3. Inicie o projeto:**
+```bash
+npx expo start
+```
+
+Escaneie o QR Code gerado no terminal com o app **Expo Go**.
+
+---
+
+## 📂 Estrutura do projeto
