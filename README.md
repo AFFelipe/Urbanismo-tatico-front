@@ -1,58 +1,31 @@
-Urbanismo Tático — App 📱
-Aplicativo mobile desenvolvido em React Native com Expo para auxiliar no monitoramento e validação de intervenções urbanas temporárias. O sistema permite que o cidadão visualize locais de intervenção, acompanhe sua distância em tempo real e registre sua presença, servindo como uma ferramenta de coleta de dados para gestão urbana inteligente.
+# Urbanismo Tático — App 📱
 
-🚀 Funcionalidades Principais
-Geolocalização em tempo real: Utiliza o expo-location para capturar a posição do usuário.
+Aplicativo mobile desenvolvido em **React Native com Expo** para monitoramento de intervenções urbanas temporárias em Recife. O cidadão pode visualizar os pontos de intervenção ordenados por proximidade, acompanhar sua localização em tempo real com detecção por geofencing e registrar presença com avaliação por estrelas.
 
-Cálculo de Proximidade: Implementação da fórmula de Haversine para calcular a distância entre o usuário e as intervenções.
+---
 
-Validação Participativa: Registro de presença via requisição POST com captura de coordenadas e timestamp.
+## 🚀 Funcionalidades
 
-Navegação Dinâmica: Fluxo de telas otimizado com React Navigation (Stack).
+- **Lista por proximidade** — intervenções ordenadas pela distância do usuário via fórmula de Haversine
+- **Geolocalização em tempo real** — rastreamento contínuo com `watchPositionAsync` (atualiza a cada 5s ou 10m)
+- **Geofencing** — detecta automaticamente quando o usuário entra no raio de 50 metros de uma intervenção
+- **Mapa com marcadores** — exibe todas as intervenções no mapa via `react-native-maps`
+- **Registro de presença** — envia coordenadas, timestamp e avaliação com nota de 1 a 5 estrelas para o backend
+- **Integração com Dados Recife** — consome API local que processa o CSV oficial do portal Dados Recife
 
-🛠 Pré-requisitos
-Certifique-se de ter instalado:
+---
 
-Node.js (v18 ou superior)
+## 🛠 Tecnologias
 
-Expo Go (disponível na Play Store/App Store)
+- [React Native](https://reactnative.dev/) + [Expo SDK 54](https://expo.dev/)
+- [React Navigation](https://reactnavigation.org/) (Stack Navigator)
+- [expo-location](https://docs.expo.dev/versions/latest/sdk/location/)
+- [react-native-maps](https://github.com/react-native-maps/react-native-maps)
+- [@expo/vector-icons](https://docs.expo.dev/guides/icons/)
 
-⚙️ Instalação e Execução
-Clone o repositório e instale as dependências:
+---
 
-Bash
-npm install
-Configure o Servidor:
-O app consome uma API local. Certifique-se de que o backend esteja rodando no seu computador e altere o IP em screens/HomeScreen.js para o IP da sua rede local (IPv4):
+## 📋 Pré-requisitos
 
-JavaScript
-const API_BASE = 'http://192.168.x.x:3000';
-Inicie o projeto:
-
-Bash
-npx expo start
-Utilize o app Expo Go no seu smartphone para escanear o QR Code gerado no terminal.
-
-📂 Estrutura do Projeto
-App.js: Configuração do Navigation Container e rotas.
-
-/screens/HomeScreen.js: Hub principal. Responsável pelo fetch dos dados, cálculo de distância (Haversine) e ordenação por proximidade.
-
-/screens/TrackingScreen.js: Interface de monitoramento contínuo, utilizando watchPositionAsync para atualizar a posição do usuário.
-
-📡 Documentação da API (Backend)
-O aplicativo integra-se com um servidor Node.js/FastAPI através dos seguintes endpoints:
-
-GET /intervencoes: Retorna o JSON com as intervenções cadastradas.
-
-POST /registro-posicao: Envia um JSON com:
-
-JSON
-{
-  "latitude": -8.05,
-  "longitude": -34.88,
-  "rua_nome": "Exemplo",
-  "timestamp": "2026-06-23T..."
-}
-🎓 Contexto Acadêmico
-Este projeto é uma aplicação prática de Urbanismo Tático baseado em dados (Data-Driven), onde a tecnologia atua como ponte entre a intervenção física no espaço público e a mensuração do engajamento do cidadão.
+- Node.js v18+
+- App **Expo Go** instalado no smartphone (
